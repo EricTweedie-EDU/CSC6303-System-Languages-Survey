@@ -1,0 +1,38 @@
+<!-- Eric Tweedie week 4 CSC6303
+interactive webpage with javascript -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Prime Number Checker</title>
+    </head>
+    <body>
+        <h1>Prime Checker</h1>
+        <p>Enter a number from 2 - 9999 to see if it is a prime number:</p>
+        <input type="text" id="number">
+        <button onclick="checkPrime()" id="check">Check</button>
+        <p id="result"></p>
+        <script>
+            function checkPrime() {
+                var num = document.getElementById("number").value;
+                var result = document.getElementById("result");
+                var isPrime = true;
+                if (num < 2 || num > 9999 || isNaN(num)) {
+                    result.innerHTML = "Please enter a number between 2 and 9999.";
+                    return;
+                }
+                for (var i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    result.innerHTML = num + " is a prime number.";
+                } else {
+                    result.innerHTML = num + " is not a prime number.";
+                }
+            }
+        </script>
+    </body>
+</html>
