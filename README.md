@@ -11,6 +11,30 @@ Python code converted into Java
 # Module 2
 Convert the C++ program linked below into a Java program.
 A program conversion must reproduce the exact behavior, i.e., the same input in the original, and convert programs must deliver the same output. Test ALL data type inputs on both programs.
+#include <iostream>
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1)                   return false;
+    if (n <= 3)                   return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int number;
+    do {
+        cout << "Enter a positive number (0 or negative to exit): ";
+        cin >> number;
+        if (number <= 0)     break;
+        if (isPrime(number)) cout << number << " is a prime number." << endl;
+        else                 cout << number << " is not a prime number." << endl;
+    } while (true);
+    return 0;
+}
 
 # Module 3
 Convert this Python program into a Go lang program. A program conversion must reproduce the exact behavior, i.e., the same input in the original and convert programs must deliver the same output.
